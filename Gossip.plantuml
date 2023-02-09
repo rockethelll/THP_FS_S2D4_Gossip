@@ -1,0 +1,34 @@
+@startuml Gossip
+
+Class user {
+  first_name :string
+  last_name :string
+  descritpion :text
+  email :string
+  age :integer
+}
+
+Class city {
+  name :string
+  zip_code :string
+}
+
+Class gossip {
+  title :string
+  content :string
+}
+
+Class tag {
+  title :string
+}
+
+Class privatemessage {
+  content :string
+}
+
+user "*" -- "1" city: a
+user "1" - "*" gossip: peut écrire
+gossip "*" - "*" tag
+privatemessage "*" -- "*" user
+
+@enduml
